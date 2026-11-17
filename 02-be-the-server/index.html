@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 · Be the server</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- CODEPEN START -->
+<header>
+  <h1>Be the server</h1>
+  <p>You are a web server. A request arrives for a <b>path</b>. Find the file on your disk and send it back with a <b>status code</b> and a <b>content-type</b>, or explain why you can't.</p>
+</header>
+
+<main class="cols">
+  <section class="panel">
+    <h2>Your disk <small>/var/www/site</small></h2>
+    <ul id="files"></ul>
+    <form id="add-file" class="row">
+      <input id="new-path" placeholder="photos/sunset.jpg" aria-label="New file path">
+      <button>Add file</button>
+    </form>
+    <label for="file-body" class="hint">Click a file to edit what's inside it:</label>
+    <textarea id="file-body" rows="7" spellcheck="false"></textarea>
+  </section>
+
+  <section class="panel">
+    <h2>Request</h2>
+    <form id="request" class="row">
+      <span class="method">GET</span>
+      <input id="path" value="/" aria-label="Path to request">
+      <button>Send</button>
+    </form>
+    <p class="hint">Try: <code>/</code> · <code>/about.html</code> · <code>/missing</code> · <code>/style.css</code> · <code>/old-page</code></p>
+
+    <h2>Response</h2>
+    <pre id="status" class="status"></pre>
+    <pre id="headers"></pre>
+    <h3>Body</h3>
+    <pre id="body" class="body"></pre>
+  </section>
+</main>
+
+<section class="tasks">
+  <h2>Your tasks <small>(edit the JS panel)</small></h2>
+  <ol>
+    <li><b>TODO 1:</b> a request for <code>/</code> should return <code>index.html</code>.</li>
+    <li><b>TODO 2:</b> a file that doesn't exist should get <b>404 Not Found</b> (at the moment it says 200 with an empty body).</li>
+    <li><b>TODO 3:</b> add <code>photos/sunset.jpg</code> on the disk, then request it. Fix the <b>content-type</b>.</li>
+    <li><b>Bonus:</b> make <code>/old-page</code> answer <b>301</b> with <code>location: /new-page.html</code>.</li>
+  </ol>
+</section>
+<!-- CODEPEN END -->
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* shared look for the starter exercises (uos colours) */
+:root { --blue: #203d75; --pale: #eaf0f9; --teal: #2b7a8b; --green: #18654d; --orange: #e07a1f; --red: #c62828; --grey: #424242; }
+* { box-sizing: border-box; }
+body { font-family: system-ui, "Segoe UI", Arial, sans-serif; color: var(--grey); margin: 0; padding: 1rem 1.2rem 2rem; line-height: 1.45; background: #fff; }
+h1, h2, h3 { font-family: Georgia, serif; font-weight: normal; color: var(--blue); margin: .2rem 0 .5rem; }
+h1 { font-size: 1.7rem; } h2 { font-size: 1.2rem; } h3 { font-size: 1.05rem; margin-top: .8rem; }
+small { color: #777; font-size: .8rem; }
+code { font-family: Consolas, "DejaVu Sans Mono", monospace; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1rem; }
+.panel { border: 2px solid var(--blue); border-radius: .7rem; padding: .8rem 1rem; }
+.hint { font-size: .85rem; color: #666; }
+.tasks { margin-top: 1rem; background: #fdf0e4; border-left: 5px solid var(--orange); padding: .6rem 1rem; border-radius: .4rem; }
+.tasks h2 { color: var(--orange); }
+
+/* this exercise */
+.w { display: block; margin: .6rem 0; }
+.w span { display: flex; justify-content: space-between; font-weight: bold; }
+.w input { width: 100%; }
+#ranking { padding-left: 1.4rem; }
+#ranking li { margin: .5rem 0; cursor: pointer; }
+#ranking li:first-child .name { font-weight: bold; }
+#ranking li:first-child .name::after { content: "  ★"; color: var(--orange); }
+.name { display: block; }
+.bar { display: inline-block; width: calc(100% - 3.5rem); height: .9rem; background: #eee; border-radius: .5rem; overflow: hidden; vertical-align: middle; margin-right: .4rem; }
+.bar i { display: block; height: 100%; border-radius: .5rem; transition: width .3s; }
+#why ul { padding-left: 1.1rem; font-size: .9rem; }

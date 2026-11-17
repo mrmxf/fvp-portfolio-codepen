@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>05 · Platform picker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- CODEPEN START -->
+<header>
+  <h1>Pick a platform</h1>
+  <p>How much does each thing matter <b>to you</b>, for <b>your</b> portfolio? Move the sliders: 0 = don't care, 5 = really matters. The platforms re-rank as you go.</p>
+</header>
+
+<main class="cols">
+  <section class="panel" id="weights"></section>
+  <section class="panel">
+    <h2>Your ranking</h2>
+    <ol id="ranking"></ol>
+    <p class="hint">Click a platform to see why it scored as it did.</p>
+    <div id="why"></div>
+  </section>
+</main>
+
+<section class="tasks">
+  <h2>Your tasks</h2>
+  <ol>
+    <li>Set the sliders honestly for your own portfolio. <b>Screenshot</b> the result.</li>
+    <li>Is the winner what you expected? Tell your neighbour why or why not.</li>
+    <li>Find a setting that makes <b>Wix</b> win, then one that makes <b>Hugo</b> win. What does that tell you?</li>
+    <li><b>Bonus (JS panel):</b> disagree with a score? Change it in <code>platforms</code> and add a reason.</li>
+  </ol>
+</section>
+<!-- CODEPEN END -->
+<script src="app.js"></script>
+</body>
+</html>

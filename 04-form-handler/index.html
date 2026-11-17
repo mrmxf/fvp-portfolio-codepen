@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>04 · Form handler</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- CODEPEN START -->
+<header>
+  <h1>A form handler</h1>
+  <p>A static site can't receive form data by itself. A <b>Worker</b> can: it checks the fields, blocks spam, sends you an email and answers in <b>JSON</b>. The code in the JS panel is written exactly like a real Cloudflare Worker. Today the network and the email are pretend; next session they're real.</p>
+</header>
+
+<main class="flow">
+  <section class="panel">
+    <h2>Contact me</h2>
+    <form id="contact" novalidate>
+      <label>Name <input name="name" autocomplete="name"></label>
+      <label>Email <input name="email" autocomplete="email"></label>
+      <label>Message <textarea name="message" rows="4"></textarea></label>
+      <!-- spam trap: people never see this field, bots fill it in -->
+      <label class="trap" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
+      <button>Send</button>
+      <label class="check"><input type="checkbox" id="bot"> pretend I'm a spam bot</label>
+    </form>
+    <p id="result" class="result"></p>
+  </section>
+
+  <div class="wire" aria-hidden="true"><span id="packet"></span><small>POST /api/contact</small></div>
+
+  <section class="panel worker">
+    <h2>Worker <small>/api/contact</small></h2>
+    <h3>Request in</h3>
+    <pre id="req">(nothing yet)</pre>
+    <h3>Response out</h3>
+    <pre id="res">(nothing yet)</pre>
+  </section>
+
+  <section class="panel inbox">
+    <h2>✉ Your inbox</h2>
+    <div id="inbox"><p class="hint">No messages yet.</p></div>
+  </section>
+</main>
+
+<section class="tasks">
+  <h2>Your tasks <small>(edit the Worker code at the top of the JS panel)</small></h2>
+  <ol>
+    <li>Send the form with a <b>bad email</b>. Find the <b>400</b> response and the error JSON.</li>
+    <li><b>TODO 1:</b> reject messages shorter than <b>10 characters</b> with a 400 and a helpful error.</li>
+    <li><b>TODO 2:</b> spam trap: if the hidden <code>website</code> field has anything in it, <b>don't send the email</b>, but still answer <code>{ ok: true }</code>. (Tick "pretend I'm a spam bot" to test.) Why not send an error back?</li>
+    <li><b>Bonus:</b> also reject a name longer than 100 characters.</li>
+  </ol>
+</section>
+<!-- CODEPEN END -->
+<script src="app.js"></script>
+</body>
+</html>

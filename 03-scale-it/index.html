@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>03 · Scale it</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- CODEPEN START -->
+<header>
+  <h1>Scale it</h1>
+  <p>Visitors arrive at a <b>load balancer</b>, which shares them between identical <b>containers</b>. Each container can serve a few requests a second; anything more waits in its queue. Every container costs money for every second it's switched on, <b>busy or not</b>.</p>
+</header>
+
+<section class="panel controls">
+  <label>Traffic: <b id="rate-out">5</b> requests/second
+    <input id="rate" type="range" min="0" max="60" value="5"></label>
+  <label>Containers: <b id="n-out">1</b>
+    <input id="n" type="range" min="1" max="12" value="1"></label>
+  <div class="row">
+    <button id="spike">Traffic spike!</button>
+    <label class="check"><input id="auto" type="checkbox"> autoscale (bonus)</label>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="lb">Load balancer</div>
+  <div id="containers"></div>
+</section>
+
+<section class="stats">
+  <div><span id="wait">0.0</span><small>average wait (s)</small></div>
+  <div><span id="queued">0</span><small>waiting now</small></div>
+  <div><span id="served">0</span><small>served</small></div>
+  <div><span id="cost">£0.00</span><small>cost so far</small></div>
+</section>
+
+<section class="tasks">
+  <h2>Your tasks</h2>
+  <ol>
+    <li>Press <b>Traffic spike!</b> with one container. How long is the wait?</li>
+    <li>Add containers until nobody waits more than <b>1 second</b> during a spike. How many did you need?</li>
+    <li>Set traffic to <b>0</b>. Watch the cost. What are you paying for?</li>
+    <li><b>Bonus (JS panel):</b> write <code>autoscale()</code> so containers are added when queues grow and removed when they're empty.</li>
+  </ol>
+</section>
+<!-- CODEPEN END -->
+<script src="app.js"></script>
+</body>
+</html>
